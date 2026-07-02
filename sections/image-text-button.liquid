@@ -1,0 +1,129 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+  {{ section_id }} .text-button-wrapper h2 {
+    font-size: 36px;
+    font-weight: 600;      
+    line-height: 44px; 
+    color: #4D4D4D;
+    margin: 0px;
+  }
+
+  {{ section_id }} .text-button-wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #717171;
+    margin: 0px;
+  }
+
+  {{ section_id }} .text-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  {{ section_id }} .learn-more-btn {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    color: #FFFFFF;
+  }
+
+   {{ section_id }} .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    width: 128px;
+    height: 52px;
+    border-radius: 4px;
+    background-color: #4CAF4F;
+  }
+
+  {{ section_id }} .section-page-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 49px;
+    padding: 42px 0px;
+    justify-content: space-between;
+  }
+
+</style>
+
+
+<div class="image-text-button-section">
+  <div class="container mx-auto">
+    <div class="section-page-content">
+      <div class="media-wrapper">
+          {% if section.settings.image_id %}
+            {{ section.settings.image_id | image_url: width: 442 | image_tag }}
+          {% endif %}
+        </div>
+      <div class="text-button-wrapper">
+        <h2>
+          {{  section.settings.header_text  }}
+        </h2>
+        <p>
+          {{ section.settings.desc_text }}
+        </p>
+
+        <div class="button-wrapper">
+          <a href="{{ section.settings.button_link }}" class="learn-more-btn">{{ section.settings.button_text }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image Text Button",
+  "settings": [
+    {
+     "type": "text",
+      "id": "header_text",
+      "label": "Header Text"
+    },
+    {
+     "type": "text",
+      "id": "desc_text",
+      "label": "Description Text"
+    },
+    {
+     "type": "image_picker",
+     "id": "image_id",
+     "label": "Image"
+    },
+    {
+     "type": "text",
+     "id": "button_text",
+     "label": "Button Text"
+    },
+    {
+     "type": "url",          
+     "id": "button_link",
+     "label": "Button Link"
+    }
+  ],  
+  "presets": [
+    {
+      "name": "Image with Text and Button"
+    }
+  ]
+}
+
+{% endschema %}

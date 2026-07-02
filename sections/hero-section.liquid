@@ -1,0 +1,134 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+  {{ section_id }} .header-text h1 strong {
+    font-weight: inherit;
+    color: #4CAF4F;
+  }
+
+  {{ section_id }} .header-text h1 {
+    font-size: 64px;
+    line-height: 76px;
+    margin: 0px;
+    color: #4D4D4D;
+  }
+
+  {{ section_id }} .hero-content p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #717171;
+  }
+
+  {{ section_id }} .hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 96px 0px 96px 0px;
+  }
+
+  {{ section_id }} .hero-actions {
+    max-width: 128px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #4CAF4F;
+  }
+
+  {{ section_id }} .register-button {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+  }
+
+  {{ section_id }} .text-button-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+</style>
+
+<div class="hero-section">
+  <div class="container mx-auto">
+    <div class="hero-content">
+      <div class="text-button-image-wrapper">
+        
+      {% if section.settings.header_text %}
+        <div class="header-text">
+          {{  section.settings.header_text  }}
+        </div>
+      {% endif %}
+      
+        <p>
+          {{ section.settings.desc_text }}
+        </p>
+
+        <div class="hero-actions">
+            <a href="{{ section.settings.button_link }}" class="register-button">{{ section.settings.button_text }}</a>
+        </div>
+
+      </div>
+
+      {% if section.settings.hero_image %}
+        {{ section.settings.hero_image | image_url: width: 391 | image_tag }}
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{% schema %} 
+  {
+  "name": "Hero Section",
+  "settings": [
+    {
+     "type": "color_background",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+     "type": "richtext",
+      "id": "header_text",
+      "label": "Header Text"
+    },
+    {
+     "type": "text",
+      "id": "desc_text",
+      "label": "Description Text"
+    },
+    {
+     "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+     "type": "url",
+      "id": "button_url",
+      "label": "Button Link"
+    },
+    {
+     "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image"
+    }
+    ],
+      "presets": [
+      {
+        "name": "Hero Section"
+      }
+    ]
+  }
+{% endschema %}

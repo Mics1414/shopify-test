@@ -1,0 +1,162 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+  {{ section_id }} .content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 64px 0px;
+    gap: 72px;
+  } 
+
+  {{ section_id }} .intro-text-wrapper {
+    max-width: 520px;
+    width: 100%;
+  }
+
+  {{ section_id }} .intro-text-wrapper h2 {
+    font-size: 36px;
+    font-weight: 600;      
+    line-height: 44px; 
+    color: #4D4D4D;
+    margin: 0px;
+  }
+
+  {{ section_id }} .intro-text-wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #717171;
+    margin: 0px;
+  }
+
+  {{ section_id }} .intro-text-wrapper h2 strong {
+    font-weight: inherit;
+    color: #4CAF4F;
+  }
+
+  {{ section_id }} .logo-text-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 540px;
+    width: 100%;
+  } 
+
+  {{ section_id }} .logo {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 16px;
+    max-width: 250px;
+    width: 100%;
+  }
+
+  {{ section_id }} .text-wrapper h2 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #18191F;
+    margin: 0px;
+  }
+
+  {{ section_id }} .text-wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #717171;
+    margin: 0px;
+  }
+
+</style>
+
+
+<div class="text-logo-section">
+  <div class="container mx-auto">
+    <div class="content-wrapper">
+      <div class="intro-text-wrapper">
+        <h2>
+          {{  section.settings.header_text  }}
+        </h2>
+        <p>
+          {{ section.settings.desc_text }}
+        </p>
+      </div>
+
+      <div class="logo-text-wrapper">
+        {% for block in section.blocks %}
+          <div class="logo">
+              {% if block.settings.logo_id %}
+                {{ block.settings.logo_id | image_url: width: 48 | image_tag }}
+              {% endif %}
+              <div class="text-wrapper">
+                <h2>
+                  {{  block.settings.logo_header_text  }}
+                </h2>
+                <p>
+                  {{ block.settings.logo_desc_text }}
+                </p>
+              </div> 
+            </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image Text Button",
+  "settings": [
+    {
+     "type": "richtext",
+      "id": "header_text",
+      "label": "Header Text"
+    },
+    {
+     "type": "text",
+      "id": "desc_text",
+      "label": "Description Text"
+    }
+  ], 
+  "blocks": [
+      {
+       "type": "logo",
+       "name": "logo",
+       "settings": [
+          {
+           "type": "image_picker",
+           "id": "logo_id",
+           "label": "Logo"
+          },
+          {
+           "type": "text",
+           "id": "logo_desc_text",
+           "label": "Description Text"
+          },
+          {
+           "type": "text",
+           "id": "logo_header_text",
+           "label": "Header Text"
+          }
+        ]
+      }
+      ],
+  "presets": [
+    {
+      "name": "Text with Logo"
+    }
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,105 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} {
+    background: blue;
+  }
+
+  {{ section_id }} h1 {
+    color: green;
+  }
+</style>
+
+
+<div class="first-section">
+  <div class="page-width">
+      <div class="page-content">
+        <div class="page-media">
+          {% if section.settings.image_id %}
+            {{ section.settings.image_id | image_url: width: 445 | image_tag }}
+          {% endif %}
+        </div>
+
+        <div class="page-intro">
+          <h1>
+            {{ section.settings.first_name }}
+            {{ section.settings.last_name }}
+          </h1> 
+          <p>
+            {{ section.settings.birthday }}
+          </p>
+          <div class="page-actions">
+          <a href="{{ section.settings.button_link }}" class="button">{{ section.settings.button_text }}</a>
+        </div>
+        </div>
+    </div>
+
+    <div class="skills">
+      {% for block in section.blocks %}
+        {% if block.type == 'skills' %}
+            {% if block.settings.title %}
+              <p>{{ block.settings.title }}</p>
+            {% endif %}  
+          {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "First Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "first_name",
+      "label": "First Name"
+    },
+    {
+     "type": "text",
+     "id": "last_name",
+     "label": "Last Name"
+    }, 
+    {
+     "type": "text",
+     "id": "birthday",
+     "label": "Birthday"
+    },
+    {
+     "type": "image_picker",
+     "id": "image_id",
+     "label": "Image"
+    },
+    {
+     "type": "text",
+     "id": "button_text",
+     "label": "Button Text"
+    },
+    {
+     "type": "url",          
+     "id": "button_link",
+     "label": "Button Link"
+    }
+
+  ],  
+  "blocks": [
+    {
+      "type": "skills",
+      "name": "Skills",
+      "settings": [
+        {
+         "type": "text",
+         "id": "title",
+         "label": "skill"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "First Section"
+    }
+  ]
+}
+
+{% endschema %}

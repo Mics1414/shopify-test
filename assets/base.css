@@ -249,6 +249,56 @@ html.no-js .no-js-hidden {
   padding: 0 1.5rem;
 }
 
+  .first-section {
+    padding: 30px 0px;
+  }
+
+  .page-media {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .page-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1420.8px;
+    width: 100%;
+    background-color: black;
+    height: 445px;
+  }
+
+  .page-content h1, .page-intro p {
+    color: rgb(255, 255, 255);
+  }
+
+  .page-intro {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 70px 70px;
+  }
+
+  .skills {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+    padding: 10px;
+  }
+
+  .skills p {
+    padding: 10px;
+    background-color: #ffffff;
+    max-width: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
 .page-width.drawer-menu {
   max-width: 100%;
 }

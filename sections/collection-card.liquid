@@ -1,0 +1,124 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+  {{ section_id }} .text-intro-wrapper h2 {
+    font-size: 36px;
+    font-weight: 600;      
+    line-height: 44px; 
+    color: #4D4D4D;
+    margin: 0px;
+  }
+
+  {{ section_id }} .text-intro-wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #717171;
+    margin: 0px;
+  }
+
+
+</style>
+
+<div class="collection-card">
+  <div class="container mx-auto">
+    <div class="showcase-page-content">
+      <div class="content-wrapper">
+        <div class="intro-text-wrapper">
+          <h2>
+            {{  section.settings.header_text  }}
+          </h2>
+          <p>
+            {{ section.settings.desc_text }}
+          </p>
+        </div>
+
+        <div class="card-image-text-wrapper">
+          {% for block in section.blocks %}
+            <div class="card">
+              {% if block.settings.card_logo %}
+                {{ block.settings.card_logo | image_url: width: 368 | image_tag }}
+              {% endif %}
+              <div class="card-text-wrapper">
+                <h2>
+                  {{  block.settings.card_header_text  }}
+                </h2>
+                
+                <div class="button-wrapper">
+                  {% if section.settings.button_logo %}
+                    <a href="{{ section.settings.button_link }}" class="arrow-btn">{{ section.settings.button_text }}<span>{{ section.settings.button_logo | image_url: width: 24 | image_tag }}</span></a>
+                  {% endif %}
+                </div>
+              </div> 
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %} 
+  {
+  "name": "Card Showcase",
+  "settings": [
+    {
+     "type": "text",
+      "id": "header_text",
+      "label": "Header Text"
+    },
+    {
+     "type": "text",
+      "id": "desc_text",
+      "label": "Description Text"
+    }
+    ],
+    "blocks": [
+      {
+       "type": "cards",
+       "name": "Card",
+       "settings": [
+          {
+           "type": "image_picker",
+           "id": "card_logo",
+           "label": "Logo"
+          },
+          {
+           "type": "text",
+           "id": "card_header_text",
+           "label": "Header Text"
+          },
+          {
+           "type": "image_picker",
+           "id": "button_logo",
+           "label": "Button Logo"
+          },
+          {
+           "type": "text",
+           "id": "button_text",
+           "label": "Button Text"
+          },
+          {
+           "type": "url",
+           "id": "button_link",
+           "label": "Button Link"
+          }
+        ]
+      }
+      ],
+      "presets": [
+      {
+        "name": "Text and Collection Cards"
+      }
+    ]
+  }
+{% endschema %}

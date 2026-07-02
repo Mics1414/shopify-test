@@ -1,0 +1,114 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+  {{ section_id }} .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  {{ section_id }} .text-wrapper h2 {
+    font-size: 36px;
+    font-weight: 600;      
+    line-height: 44px; 
+    color: #4D4D4D;
+    margin: 0px;
+  }
+
+  {{ section_id }} .text-wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #717171;
+    margin: 0px;
+  }
+
+  {{ section_id }} .client-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 41px;
+    padding: 40px 0px 20px 0px;
+  }
+
+  {{ section_id }} .logo-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 45px;
+  }
+
+  
+
+</style>
+
+<div class="client-showcase">
+  <div class="container mx-auto">
+    <div class="client-content">
+      <div class="text-wrapper">
+        <h2>
+          {{  section.settings.header_text  }}
+        </h2>
+        <p>
+          {{ section.settings.desc_text }}
+        </p>
+      </div>
+
+        <div class="logo-wrapper">
+          {% for block in section.blocks %}
+            {% if block.settings.client_logo %}
+              {{ block.settings.client_logo | image_url: width: 48 | image_tag }}
+            {% endif %}
+          {% endfor %}
+        </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %} 
+  {
+  "name": "Client Showcase",
+  "settings": [
+    {
+     "type": "text",
+      "id": "header_text",
+      "label": "Header Text"
+    },
+    {
+     "type": "text",
+      "id": "desc_text",
+      "label": "Description Text"
+    }
+    ],
+    "blocks": [
+      {
+       "type": "client",
+       "name": "Logo",
+       "settings": [
+          {
+           "type": "image_picker",
+           "id": "client_logo",
+           "label": "Logo"
+          }
+        ]
+      }
+      ],
+      "presets": [
+      {
+        "name": "Logo Showcase"
+      }
+    ]
+  }
+{% endschema %}
