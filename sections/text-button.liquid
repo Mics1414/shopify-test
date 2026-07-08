@@ -1,0 +1,110 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 10px;
+    background-color: #F5F7FA;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+  {{ section_id }} .content-wrapper {
+    padding: 32px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  {{ section_id }} .intro-text-wrapper h2 {
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 76px;
+    color: #263238;
+    text-align: center;
+    margin: 0px;
+  }
+
+  {% comment %} {{ section_id }} .intro-text-wrapper {
+    max-width: 769.33px;
+    width: 100%;
+  } {% endcomment %}
+
+  {{ section_id }} .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    width: 178px;
+    height: 52px;
+    border-radius: 4px;
+    align-items: center;
+    background-color: #4CAF4F;
+  }
+
+  {{ section_id }} .button-wrapper a {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    letter-spacing: 0%;
+    text-decoration: none;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+  }
+
+</style>
+
+<div class="text-button-wrapper">
+  <div class="container mx-auto">
+    <div class="content-wrapper">
+      <div class="intro-text-wrapper">
+        <h2>
+          {{  section.settings.header_text  }}
+        </h2>
+      </div>
+
+        <div class="button-wrapper">
+          {% if section.settings.button_logo %}
+            <a href="{{ section.settings.button_link }}" class="arrow-btn">{{ section.settings.button_text }}<span>{{ section.settings.button_logo | image_url: width: 16, height: 16 | image_tag }}</span></a>
+          {% endif %}
+        </div>
+    </div>
+  </div>
+</div>
+
+{% schema %} 
+  {
+  "name": "Text with Button",
+  "settings": [
+    {
+     "type": "text",
+      "id": "header_text",
+      "label": "Header Text"
+    },
+    {
+     "type": "image_picker",
+     "id": "button_logo",
+     "label": "Button logo"
+    },
+    {
+     "type": "text",
+     "id": "button_text",
+     "label": "Button Text"
+    },
+    {
+     "type": "url",
+     "id": "button_link",
+     "label": "Button Link"
+    }
+    ],
+      "presets": [
+      {
+        "name": "Text with Button"
+      }
+    ]
+  }
+{% endschema %}

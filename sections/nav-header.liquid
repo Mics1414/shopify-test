@@ -1,0 +1,123 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 10px;
+    background-color: #F5F7FA;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+  {{ section_id }} .content-wrapper {
+    padding: 32px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  {{ section_id }} .intro-text-wrapper h2 {
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 76px;
+    color: #263238;
+    text-align: center;
+    margin: 0px;
+  }
+
+  {{ section_id }} .text-intro-wrapper p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #717171;
+    margin: 0px;
+  }
+
+  {{ section_id }} .content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0px;
+  }
+
+  {{ section_id }} .menu-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+</style>
+
+<div class="nav-header-wrapper">
+  <div class="container mx-auto">
+    <div class="content-wrapper">
+      <div class="logo-wrapper">
+         {% if section.settings.nav_logo %}
+            {{ section.settings.nav_logo | image_url: width: 154.49 | image_tag }}
+          {% endif %}
+      </div>
+
+      <div class="menu-wrapper">
+        <ul>
+          {% for link in section.settings.menu_lists.links %}
+            <li>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="button-wrapper">
+        {% for block in section.blocks %}
+          {% if block.settings.button_text %}
+            <a href="{{ block.settings.button_link }}" class="view-more-btn">{{ block.settings.button_text }}</a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %} 
+  {
+  "name": "Nav Header",
+  "settings": [
+    {
+     "type": "image_picker",
+     "id": "nav_logo",
+     "label": "Nav logo"
+    },
+    {
+     "type": "link_list",
+     "id": "menu_lists",
+     "label": "Menu"
+    }
+    ],
+    "blocks": [
+      {
+       "type": "buttons",
+       "name": "Button",
+       "settings": [
+          {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+          },
+          {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+          }
+        ]
+      }
+      ],
+      "presets": [
+      {
+        "name": "Nav Header"
+      }
+    ]
+  }
+{% endschema %}
