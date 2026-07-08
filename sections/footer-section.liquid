@@ -117,19 +117,15 @@
 <div class="footer-wrapper">
   <div class="container mx-auto">
     <div class="content-wrapper">
-
       <div class="brand-wrapper">
-
         <div class="logo-wrapper">
           {% if section.settings.footer_logo %}
             {{ section.settings.footer_logo | image_url: width: 191 | image_tag }}
           {% endif %}
         </div>
-
         <div class="text-wrapper">
           {{ section.settings.footer_text }}
         </div>
-
         <div class="icon-wrapper">
           {% for block in section.blocks %}
             {% if block.type == 'icon' %}
@@ -141,17 +137,14 @@
             {% endif %}
           {% endfor %}
         </div>
-
       </div>
 
       {% for block in section.blocks %}
         {% if block.type == 'menu' %}
           <div class="menu-wrapper">
-
             {% if block.settings.header_text != blank %}
               <h2>{{ block.settings.header_text }}</h2>
             {% endif %}
-
             <ul class="menu-list">
               {% for link in block.settings.menu.links %}
                 <li class="menu-item">
@@ -159,34 +152,23 @@
                 </li>
               {% endfor %}
             </ul>
-
           </div>
         {% endif %}
       {% endfor %}
 
       <div class="newsletter-wrapper">
-
         {% if section.settings.input_title != blank %}
           <h2>{{ section.settings.input_title }}</h2>
         {% endif %}
-
         <div class="input-wrapper">
-
-          <input
-            type="email"
-            placeholder="{{ section.settings.input_placeholder }}"
-          >
-
+          <input type="email" placeholder="{{ section.settings.input_placeholder }}" >
           <div class="send-icon-wrapper">
             {% if section.settings.send_icon %}
               {{ section.settings.send_icon | image_url: width: 18 | image_tag }}
             {% endif %}
           </div>
-
         </div>
-
       </div>
-
     </div>
   </div>
 </div>
