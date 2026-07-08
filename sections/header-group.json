@@ -13,7 +13,6 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
-      "disabled": true,
       "blocks": {
         "announcement-bar-0": {
           "type": "announcement",
@@ -28,6 +27,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "disabled": true,
       "settings": {}
     },
     "header": {
@@ -49,10 +49,23 @@
         "padding_top": 8,
         "padding_bottom": 8
       }
+    },
+    "nav_header_FFATzM": {
+      "type": "nav-header",
+      "name": "Nav Header",
+      "settings": {
+        "nav_logo": "shopify://shop_images/nexcentlogo.svg",
+        "menu_lists": "menu",
+        "button_one_text": "Login",
+        "button_one_link": "https://mica-test-xihpexxg.myshopify.com/",
+        "button_two_text": "Sign Up",
+        "button_two_link": "https://mica-test-xihpexxg.myshopify.com/"
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "nav_header_FFATzM"
   ]
 }

@@ -9,6 +9,300 @@
  */
 {
   "sections": {
+    "hero_section_Umyx6a": {
+      "type": "hero-section",
+      "name": "Hero Section",
+      "settings": {
+        "background_color": "",
+        "header_text": "<h1>Lessons and insights<br/><strong>from 8 years</strong></h1>",
+        "desc_text": "Where to grow your business as a photographer: site or social media?",
+        "button_text": "Register",
+        "button_url": "",
+        "hero_image": "shopify://shop_images/hero-img.png"
+      }
+    },
+    "client_logo_PhGfnE": {
+      "type": "client-logo",
+      "blocks": {
+        "client_zg7xQ3": {
+          "type": "client",
+          "settings": {
+            "client_logo": "shopify://shop_images/clients-logo1.svg"
+          }
+        },
+        "client_hGrNdH": {
+          "type": "client",
+          "settings": {
+            "client_logo": "shopify://shop_images/clients-logo2.svg"
+          }
+        },
+        "client_UEb3ke": {
+          "type": "client",
+          "settings": {
+            "client_logo": "shopify://shop_images/clients-logo3.svg"
+          }
+        },
+        "client_P7jj7R": {
+          "type": "client",
+          "settings": {
+            "client_logo": "shopify://shop_images/clients-logo4.svg"
+          }
+        },
+        "client_kn9xtc": {
+          "type": "client",
+          "settings": {
+            "client_logo": "shopify://shop_images/clients-logo5.svg"
+          }
+        },
+        "client_BjfwVq": {
+          "type": "client",
+          "settings": {
+            "client_logo": "shopify://shop_images/clients-logo6.svg"
+          }
+        },
+        "client_wL3NnD": {
+          "type": "client",
+          "settings": {
+            "client_logo": "shopify://shop_images/clients-logo7.svg"
+          }
+        }
+      },
+      "block_order": [
+        "client_zg7xQ3",
+        "client_hGrNdH",
+        "client_UEb3ke",
+        "client_P7jj7R",
+        "client_kn9xtc",
+        "client_BjfwVq",
+        "client_wL3NnD"
+      ],
+      "name": "Logo Showcase",
+      "settings": {
+        "header_text": "Our Clients",
+        "desc_text": "We have been working with some Fortune 500+ clients"
+      }
+    },
+    "text_card_section_MbMXKr": {
+      "type": "text-card-section",
+      "blocks": {
+        "cards_RBeBfy": {
+          "type": "cards",
+          "settings": {
+            "card_header_text": "Membership Organisations",
+            "card_desc_text": "Our membership management software provides full automation of membership renewals and payments",
+            "card_logo": "shopify://shop_images/membership-logo.svg"
+          }
+        },
+        "cards_wF3fAe": {
+          "type": "cards",
+          "settings": {
+            "card_header_text": "National Associations",
+            "card_desc_text": "Our membership management software provides full automation of membership renewals and payments",
+            "card_logo": "shopify://shop_images/national-logo.svg"
+          }
+        },
+        "cards_HpWzHW": {
+          "type": "cards",
+          "settings": {
+            "card_header_text": "Clubs And Groups",
+            "card_desc_text": "Our membership management software provides full automation of membership renewals and payments",
+            "card_logo": "shopify://shop_images/clubs-logo.svg"
+          }
+        }
+      },
+      "block_order": [
+        "cards_RBeBfy",
+        "cards_wF3fAe",
+        "cards_HpWzHW"
+      ],
+      "name": "Card Showcase",
+      "settings": {
+        "header_text": "Manage your entire community in a single system",
+        "desc_text": "Who is Nextcent suitable for?"
+      }
+    },
+    "image_text_button_pakAjk": {
+      "type": "image-text-button",
+      "name": "Image with Text and Button",
+      "settings": {
+        "header_text": "The unseen of spending three years at Pixelgrade",
+        "desc_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum. Sed accumsan quam vitae est varius fringilla. Pellentesque placerat vestibulum lorem sed porta. Nullam mattis tristique iaculis. Nullam pulvinar sit amet risus pretium auctor. Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec elementum pulvinar odio.",
+        "image_id": "shopify://shop_images/pixelgrade-img.png",
+        "button_text": "Learn More",
+        "button_link": "https://mica-test-xihpexxg.myshopify.com/"
+      }
+    },
+    "text_logo_section_HaV6UU": {
+      "type": "text-logo-section",
+      "blocks": {
+        "logo_fB6DCw": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/members.svg",
+            "logo_desc_text": "Members",
+            "logo_header_text": "2,245,341"
+          }
+        },
+        "logo_QAawTL": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/clubs.png",
+            "logo_desc_text": "Clubs",
+            "logo_header_text": "46,328"
+          }
+        },
+        "logo_dMDmM4": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/click.svg",
+            "logo_desc_text": "Event Bookings",
+            "logo_header_text": "828,867"
+          }
+        },
+        "logo_yPFGRT": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/payment.svg",
+            "logo_desc_text": "Payments",
+            "logo_header_text": "1,926,436"
+          }
+        }
+      },
+      "block_order": [
+        "logo_fB6DCw",
+        "logo_QAawTL",
+        "logo_dMDmM4",
+        "logo_yPFGRT"
+      ],
+      "name": "Text with Logo",
+      "settings": {
+        "header_text": "<h2>Helping a local<br/><strong>business reinvent itself</strong></h2>",
+        "desc_text": "We reached here with our hard work and dedication"
+      }
+    },
+    "image_text_button_pmBWEr": {
+      "type": "image-text-button",
+      "name": "Image with Text and Button",
+      "settings": {
+        "header_text": "How to design your site footer like we did",
+        "desc_text": "Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue nec tincidunt molestie, massa nunc varius arcu, at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In hac habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod augue vitae nisi ultricies, non aliquet urna tincidunt. Integer in nisi eget nulla commodo faucibus efficitur quis massa. Praesent felis est, finibus et nisi ac, hendrerit venenatis libero. Donec consectetur faucibus ipsum id gravida.",
+        "image_id": "shopify://shop_images/guide-illustration.png",
+        "button_text": "Learn More",
+        "button_link": "https://mica-test-xihpexxg.myshopify.com/"
+      }
+    },
+    "image_text_logo_section_e9PKij": {
+      "type": "image-text-logo-section",
+      "blocks": {
+        "logo_XW6nhL": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/customerlogo1.svg"
+          }
+        },
+        "logo_td7qeQ": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/customerlogo2.svg"
+          }
+        },
+        "logo_EjiyyL": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/customerlogo3.svg"
+          }
+        },
+        "logo_YWKX7a": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/customerlogo4.svg"
+          }
+        },
+        "logo_QeLjhb": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/customerlogo5.svg"
+          }
+        },
+        "logo_QfKDPN": {
+          "type": "logo",
+          "settings": {
+            "logo_id": "shopify://shop_images/customerlogo6.svg"
+          }
+        }
+      },
+      "block_order": [
+        "logo_XW6nhL",
+        "logo_td7qeQ",
+        "logo_EjiyyL",
+        "logo_YWKX7a",
+        "logo_QeLjhb",
+        "logo_QfKDPN"
+      ],
+      "name": "Image with Text and Logo",
+      "settings": {
+        "image_id": "shopify://shop_images/customers.png",
+        "rich_text": "<p>Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu enim metus. Vivamus sed libero ornare, tristique quam in, gravida enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet elit at ligula molestie, nec molestie mi blandit. Suspendisse cursus tellus sed augue ultrices, quis tristique nulla sodales. Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse potenti. Quisque malesuada enim sapien, vitae placerat ante feugiat eget. Quisque vulputate odio neque, eget efficitur libero condimentum id. Curabitur id nibh id sem dignissim finibus ac sit amet magna.</p><h3>Tim Smith</h3><p>British Dragon Boat Racing Association<br/></p>",
+        "button_logo": "shopify://shop_images/arrow.svg",
+        "button_text": "Meet all customers",
+        "button_link": "https://mica-test-xihpexxg.myshopify.com/"
+      }
+    },
+    "collection_card_9g6qhz": {
+      "type": "collection-card",
+      "blocks": {
+        "cards_HGFmPx": {
+          "type": "cards",
+          "settings": {
+            "card_logo": "shopify://shop_images/card1.png",
+            "card_header_text": "Creating Streamlined Safeguarding Processes with OneRen",
+            "button_logo": "shopify://shop_images/arrow.svg",
+            "button_text": "Read More",
+            "button_link": "https://mica-test-xihpexxg.myshopify.com/"
+          }
+        },
+        "cards_GDYUHm": {
+          "type": "cards",
+          "settings": {
+            "card_logo": "shopify://shop_images/card2.png",
+            "card_header_text": "What are your safeguarding responsibilities and how can you manage them?",
+            "button_logo": "shopify://shop_images/arrow.svg",
+            "button_text": "Read More",
+            "button_link": "https://mica-test-xihpexxg.myshopify.com/"
+          }
+        },
+        "cards_gyR7iC": {
+          "type": "cards",
+          "settings": {
+            "card_logo": "shopify://shop_images/card3.png",
+            "card_header_text": "Revamping the Membership Model with Triathlon Australia",
+            "button_logo": "shopify://shop_images/arrow.svg",
+            "button_text": "Read More",
+            "button_link": "https://mica-test-xihpexxg.myshopify.com/"
+          }
+        }
+      },
+      "block_order": [
+        "cards_HGFmPx",
+        "cards_GDYUHm",
+        "cards_gyR7iC"
+      ],
+      "name": "Text and Collection Cards",
+      "settings": {
+        "header_text": "Caring is the new marketing",
+        "desc_text": "The Nexcent blog is the best place to read about the latest membership insights, trends and more. See who's joining the community, read about how our community are increasing their membership income and lot's more.​"
+      }
+    },
+    "text_button_ftfT3b": {
+      "type": "text-button",
+      "name": "Text with Button",
+      "settings": {
+        "header_text": "Pellentesque suscipitfringilla libero eu.",
+        "button_logo": "shopify://shop_images/white-arrow.svg",
+        "button_text": "Get a Demo",
+        "button_link": "https://mica-test-xihpexxg.myshopify.com/"
+      }
+    },
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b": {
       "type": "image-banner",
       "blocks": {
@@ -43,6 +337,7 @@
         "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-1",
         "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-2"
       ],
+      "disabled": true,
       "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/theme_cover_image.jpg",
@@ -60,6 +355,7 @@
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "<strong>Featured products</strong>",
         "heading_size": "h1",
@@ -115,6 +411,7 @@
         "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-1",
         "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-2"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/theme_cover_image.jpg",
         "height": "adapt",
@@ -150,6 +447,7 @@
         "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-0",
         "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-1"
       ],
+      "disabled": true,
       "settings": {
         "title": "<strong>Collections</strong>",
         "heading_size": "h1",
@@ -165,6 +463,15 @@
     }
   },
   "order": [
+    "hero_section_Umyx6a",
+    "client_logo_PhGfnE",
+    "text_card_section_MbMXKr",
+    "image_text_button_pakAjk",
+    "text_logo_section_HaV6UU",
+    "image_text_button_pmBWEr",
+    "image_text_logo_section_e9PKij",
+    "collection_card_9g6qhz",
+    "text_button_ftfT3b",
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b",
     "featured_collection",
     "f1552b18-6017-4231-810d-74e61da22c37",

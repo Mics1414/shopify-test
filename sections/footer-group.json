@@ -11,6 +11,69 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "footer_section_WHJcXY": {
+      "type": "footer-section",
+      "blocks": {
+        "menu_3646KU": {
+          "type": "menu",
+          "settings": {
+            "header_text": "Company",
+            "menu": "company-menu"
+          }
+        },
+        "menu_fJBcCj": {
+          "type": "menu",
+          "settings": {
+            "header_text": "Support",
+            "menu": "support-menu"
+          }
+        },
+        "icon_REMrE8": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/instagram.svg",
+            "icon_link": "https://mica-test-xihpexxg.myshopify.com/"
+          }
+        },
+        "icon_ytMUUj": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/browser.svg",
+            "icon_link": "https://mica-test-xihpexxg.myshopify.com/"
+          }
+        },
+        "icon_8y8WxW": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/twitter.svg",
+            "icon_link": "https://file///C:/Users/Mica%20Angela/OneDrive/Documents/Development/nexcent-website/index.html"
+          }
+        },
+        "icon_wqjRGV": {
+          "type": "icon",
+          "settings": {
+            "icon": "shopify://shop_images/youtube.svg",
+            "icon_link": "https://file///C:/Users/Mica%20Angela/OneDrive/Documents/Development/nexcent-website/index.html"
+          }
+        }
+      },
+      "block_order": [
+        "menu_3646KU",
+        "menu_fJBcCj",
+        "icon_REMrE8",
+        "icon_ytMUUj",
+        "icon_8y8WxW",
+        "icon_wqjRGV"
+      ],
+      "name": "Footer Section",
+      "settings": {
+        "footer_logo": "shopify://shop_images/nexcentlogo-inverted.svg",
+        "footer_text": "<p>Copyright © 2020 Nexcent ltd.</p><p>All rights reserved</p>",
+        "input_title": "Stay up to date",
+        "input_placeholder": "Your email address",
+        "send_icon": "shopify://shop_images/send.svg"
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -40,6 +103,7 @@
         "6e0c08d4-cd4c-439c-b5e2-a483bba29ec2",
         "f95fe295-fbc2-4d2b-a952-72670c2ab328"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "inverse",
         "newsletter_enable": false,
@@ -57,6 +121,7 @@
     }
   },
   "order": [
+    "footer_section_WHJcXY",
     "footer"
   ]
 }

@@ -1,0 +1,107 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 0px 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+</style>
+
+<div class="test-product-section">
+  <div class="container mx-auto">
+    <div class="content-wrapper">
+      <div class="media-wrapper">
+          {% if section.settings.product_image != blank %}
+            {{ section.settings.product_image | image_url: width: 391 | image_tag }}
+          {%endif%}
+      </div>
+
+      {% for block in section.blocks %}
+        {%- case block.type -%}
+          {%- when 'title' -%}
+            <div class="header-wrapper">
+              <h2>
+                {{  product.title  }}
+              </h2>
+            </div>
+          {%- when 'description' -%}
+            <div class="desc-wrapper">
+              <h2>
+                {{  product.description  }}
+              </h2>
+            </div>
+          {%- when 'price' -%}
+            <div class="price-wrapper">
+              <h2>
+                {{  product.price | money  }}
+              </h2>
+            </div>
+          {%- when 'variant' -%}
+            {% for variant in product.variants  %}
+              {%- capture options -%}
+                {% for option in variant.options -%}
+                  <div class="variant-wrapper">
+                    {{ option }}{%- unless forloop.last -%}/{%- endunless -%}
+                  </div>
+                {% endfor %}
+            {%- endcapture -%}
+            <div class="variant-price-wrapper">
+              {{ options }} {{ product.price | money }}  
+            </div>
+          {% endfor %}
+        {% endcase %}
+    {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+{% schema %} 
+  {
+  "name": "Product Section",
+  "settings": [
+    {
+     "type": "image_picker",
+      "id": "product_image",
+      "label": "Image"
+    }
+    ],
+    "blocks": [
+      {
+       "type": "title",
+       "name": "Title",
+       "settings": []
+      },
+      {
+       "type": "description",
+       "name": "Description",
+       "settings": []
+      },
+      {
+       "type": "price",
+       "name": "Price",
+       "settings": []
+      },
+      {
+       "type": "variant",
+       "name": "Variant Picker",
+       "settings": []
+      }
+      ],
+       "presets": [
+      {
+        "name": "Product Section"
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% comment %} new product template
+product metafield
+basics of collections {% endcomment %}
