@@ -1,0 +1,264 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 0px 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+  {{ section_id }} .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 64px;
+    padding: 64px 0;
+  }
+
+  {{ section_id }} .footer-wrapper {
+    background-color: #263238;
+  }
+
+  {{ section_id }} .brand-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 350px;
+    flex: 1;
+  }
+
+  {{ section_id }} .logo-wrapper img {
+    width: 191px;
+    height: auto;
+    display: block;
+  }
+
+  {{ section_id }} .text-wrapper {
+    color: #F5F7FA;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  {{ section_id }} .text-wrapper p {
+    margin: 0 0 8px;
+  }
+
+  {{ section_id }} .icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  {{ section_id }} .menu-wrapper,
+  {{ section_id }} .newsletter-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 160px;
+  }
+
+  {{ section_id }} .menu-wrapper h2,
+  {{ section_id }} .newsletter-wrapper h2 {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+
+  {{ section_id }} .menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  {{ section_id }} .menu-item a {
+    color: #F5F7FA;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  {{ section_id }} .input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.2);
+  }
+
+  {{ section_id }} .input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #FFFFFF;
+    font-size: 14px;
+  }
+
+  {{ section_id }} .input-wrapper input::placeholder {
+    color: #D9DBE1;
+  }
+
+  {{ section_id }} .send-icon-wrapper {
+    display: flex;
+    align-items: center;
+  }
+</style>
+
+<div class="footer-wrapper">
+  <div class="container mx-auto">
+    <div class="content-wrapper">
+
+      <div class="brand-wrapper">
+
+        <div class="logo-wrapper">
+          {% if section.settings.footer_logo %}
+            {{ section.settings.footer_logo | image_url: width: 191 | image_tag }}
+          {% endif %}
+        </div>
+
+        <div class="text-wrapper">
+          {{ section.settings.footer_text }}
+        </div>
+
+        <div class="icon-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'icon' %}
+              {% if block.settings.icon %}
+                <a href="{{ block.settings.icon_link }}">
+                  {{ block.settings.icon | image_url: width: 32 | image_tag }}
+                </a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+
+      </div>
+
+      {% for block in section.blocks %}
+        {% if block.type == 'menu' %}
+          <div class="menu-wrapper">
+
+            {% if block.settings.header_text != blank %}
+              <h2>{{ block.settings.header_text }}</h2>
+            {% endif %}
+
+            <ul class="menu-list">
+              {% for link in block.settings.menu.links %}
+                <li class="menu-item">
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      <div class="newsletter-wrapper">
+
+        {% if section.settings.input_title != blank %}
+          <h2>{{ section.settings.input_title }}</h2>
+        {% endif %}
+
+        <div class="input-wrapper">
+
+          <input
+            type="email"
+            placeholder="{{ section.settings.input_placeholder }}"
+          >
+
+          <div class="send-icon-wrapper">
+            {% if section.settings.send_icon %}
+              {{ section.settings.send_icon | image_url: width: 18 | image_tag }}
+            {% endif %}
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer Logo"
+    },
+    {
+     "type": "richtext",
+     "id": "footer_text",
+     "label": "Footer Text"
+    },
+    {
+     "type": "text",
+     "id": "input_title",
+     "label": "Input Title"
+    },
+    {
+     "type": "text",
+     "id": "input_placeholder",
+     "label": "Input Placeholder"
+    },
+    {
+     "type": "image_picker",
+     "id": "send_icon",
+     "label": "Send Icon"
+    }
+  ],
+  "blocks": [
+    {
+     "type": "menu",
+     "name": "Menu",
+     "settings": [
+        {
+         "type": "text",
+         "id": "header_text",
+         "label": "Header Text"
+        },
+        {
+         "type": "link_list",
+         "id": "menu",
+         "label": "Menu"
+        }
+      ]
+    },
+    {
+     "type": "icon",
+     "name": "Icon",
+     "settings": [
+        {
+         "type": "image_picker",
+         "id": "icon",
+         "label": "Icon"
+        },
+        {
+         "type": "url",
+         "id": "icon_link",
+         "label": "Icon Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+     "name": "Footer Section"
+    }
+  ]
+}
+{% endschema %}

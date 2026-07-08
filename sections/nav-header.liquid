@@ -3,37 +3,17 @@
 <style>
   {{ section_id }} .container {
     max-width: 1440px;
-    padding: 10px;
-    background-color: #F5F7FA;
+    padding: 0px 10px;
   }
 
   {{ section_id }} .mx-auto {
     margin-inline: auto;
   }
 
-  {{ section_id }} .content-wrapper {
-    padding: 32px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-  }
-
-  {{ section_id }} .intro-text-wrapper h2 {
-    font-size: 64px;
-    font-weight: 600;
-    line-height: 76px;
-    color: #263238;
-    text-align: center;
-    margin: 0px;
-  }
-
-  {{ section_id }} .text-intro-wrapper p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: #717171;
-    margin: 0px;
+  {{ section_id }} .button-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
   }
 
   {{ section_id }} .content-wrapper {
@@ -44,26 +24,74 @@
     padding: 22px 0px;
   }
 
-  {{ section_id }} .menu-wrapper {
-    display: flex;
-    flex-direction: row;
+  {{ section_id }} .logo-wrapper img {
+    max-width: 155px;
+    width: 100%;
+    height: auto;
   }
 
+  {{ section_id }} .menu-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  {{ section_id }} .menu-list {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+
+  {{ section_id }} .menu-item a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #18191F;
+  }
+
+  {{ section_id }} .button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  {{ section_id }} .button-one,
+  {{ section_id }} .button-two {
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  {{ section_id }} .button-one {
+    color: #4CAF4F;
+    background-color: transparent;
+  }
+
+  {{ section_id }} .button-two {
+    color: #FFFFFF;
+    background-color: #4CAF4F;
+  }
 </style>
 
 <div class="nav-header-wrapper">
   <div class="container mx-auto">
     <div class="content-wrapper">
       <div class="logo-wrapper">
-         {% if section.settings.nav_logo %}
-            {{ section.settings.nav_logo | image_url: width: 154.49 | image_tag }}
-          {% endif %}
+        {% if section.settings.nav_logo %}
+          {{ section.settings.nav_logo | image_url: width: 155 | image_tag }}
+        {% endif %}
       </div>
 
       <div class="menu-wrapper">
-        <ul>
+        <ul class="menu-list">
           {% for link in section.settings.menu_lists.links %}
-            <li>
+            <li class="menu-item">
               <a href="{{ link.url }}">{{ link.title }}</a>
             </li>
           {% endfor %}
@@ -71,53 +99,73 @@
       </div>
 
       <div class="button-wrapper">
-        {% for block in section.blocks %}
-          {% if block.settings.button_text %}
-            <a href="{{ block.settings.button_link }}" class="view-more-btn">{{ block.settings.button_text }}</a>
-          {% endif %}
-        {% endfor %}
+        {% if section.settings.button_one_text != blank %}
+          <a href="{{ section.settings.button_one_link }}" class="button-one">
+            {{ section.settings.button_one_text }}
+          </a>
+        {% endif %}
+
+        {% if section.settings.button_two_text != blank %}
+          <a href="{{ section.settings.button_two_link }}" class="button-two">
+            {{ section.settings.button_two_text }}
+          </a>
+        {% endif %}
       </div>
     </div>
   </div>
 </div>
 
-{% schema %} 
-  {
+{% schema %}
+{
   "name": "Nav Header",
+  "tag": "section",
+  "class": "nav-header",
   "settings": [
     {
-     "type": "image_picker",
-     "id": "nav_logo",
-     "label": "Nav logo"
+      "type": "image_picker",
+      "id": "nav_logo",
+      "label": "Navigation Logo"
     },
     {
-     "type": "link_list",
-     "id": "menu_lists",
-     "label": "Menu"
+      "type": "link_list",
+      "id": "menu_lists",
+      "label": "Navigation Menu"
+    },
+    {
+      "type": "header",
+      "content": "Button One"
+    },
+    {
+      "type": "text",
+      "id": "button_one_text",
+      "label": "Button Text",
+      "default": "Login"
+    },
+    {
+      "type": "url",
+      "id": "button_one_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Button Two"
+    },
+    {
+      "type": "text",
+      "id": "button_two_text",
+      "label": "Button Text",
+      "default": "Sign Up"
+    },
+    {
+      "type": "url",
+      "id": "button_two_link",
+      "label": "Button Link"
     }
-    ],
-    "blocks": [
-      {
-       "type": "buttons",
-       "name": "Button",
-       "settings": [
-          {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button Text"
-          },
-          {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
-          }
-        ]
-      }
-      ],
-      "presets": [
-      {
-        "name": "Nav Header"
-      }
-    ]
-  }
+  ],
+  "presets": [
+    {
+      "name": "Nav Header"
+    }
+  ]
+}
 {% endschema %}
