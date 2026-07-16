@@ -1,0 +1,87 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 0px 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+    {{ section_id }} .profile-info h3, .profile-info p {
+    margin: 0px;
+  }
+
+  {{ section_id }} .profile-info p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 44px;
+    color: #4D4D4D;
+  }
+
+  {{ section_id }} .profile-info h3 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 44px;
+    color: #4D4D4D;
+  } 
+</style>
+
+<div class="profile-section">
+  <div class="container mx-auto">
+    <div class="content-wrapper">
+      <div class="swiper test1">
+        <div class="swiper-wrapper">
+          {% assign profile_information = product.metafields.custom.profiles.value %}
+            {% if profile_information %}
+              {% for profile_information in profile_information %}
+                <div class="profile-wrapper swiper-slide">
+                <div class="profile-media">
+                  {% if profile_information.profile_picture %}
+                    {{ profile_information.profile_picture.value | image_url: width: 400 | image_tag }}
+                  {%  endif %}
+                </div>
+                <div class="profile-info">
+                  {% if profile_information.name %}
+                    <h3>{{ profile_information.name.value }}</h3>
+                  {%  endif %}
+                  {% if profile_information.birthday %}
+                    <p>{{ profile_information.birthday.value }}</p>
+                  {%  endif %}
+                </div>
+                </div>
+              {% endfor %}
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".test1", {
+      // Optional parameters
+      slidesPerView: 3,
+      loop: true,
+      spaceBetween: 16,
+
+    });
+  });
+</script>
+
+{% schema %} 
+  {
+  "name": "Profile Metaobjects",
+     "presets": [
+    {
+      "name": "Profile Metaobjects"
+      }
+    ],
+  }
+{% endschema %}

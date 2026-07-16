@@ -1,0 +1,75 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 0px 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+</style>
+
+<div class="metafields-section">
+  <div class="container mx-auto">
+    <div class="metafields-content">
+      {%- if product.metafields.custom.seller != blank -%}
+        <div class="seller-metafield">
+          <span class="metafield-label">Seller:</span>
+          <span class="metafield-value">{{ product.metafields.custom.seller }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if product.metafields.custom.other_description != blank -%}
+        <div class="other-desc-metafield">
+          <span class="metafield-label">Other Description:</span>
+          <span class="metafield-value">{{ product.metafields.custom.other_description }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if product.metafields.custom.product_id != blank -%}
+        <div class="other-desc-metafield">
+          <span class="metafield-label">Product ID:</span>
+          <span class="metafield-value">{{ product.metafields.custom.product_id }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if product.metafields.custom.actual_image != blank -%}
+        <div class="other-desc-metafield">
+          <span class="metafield-label">Actual Image:</span>
+          <span class="metafield-value">
+            {% assign actual_image = product.metafields.custom.actual_image.value %}
+              {% if actual_image %}
+                {{ actual_image | image_url: width: 400 | image_tag }}
+              {% endif %}
+          </span>
+        </div>
+      {%- endif -%}
+
+      {%- if product.metafields.custom.actual_video != blank -%}
+        <div class="other-desc-metafield">
+          <span class="metafield-label">Actual Video:</span>
+          <span class="metafield-value">
+            {% assign actual_video = product.metafields.custom.actual_video.value %}
+              {% if actual_video %}
+                {{ actual_video | video_tag: controls: true, width: 400 }}
+              {% endif %}
+          </span>
+        </div>
+      {%- endif -%}
+      
+    </div>
+  </div>
+</div>
+
+{% schema %} 
+  {
+  "name": "Metafields Section",
+     "presets": [
+    {
+      "name": "Metafield Section"
+      }
+    ],
+  }
+{% endschema %}

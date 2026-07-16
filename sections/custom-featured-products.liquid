@@ -1,0 +1,102 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 0px 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+  {{ section_id }} .product-price h3, .product-title h2{
+    margin: 0px;
+  }
+
+  {{ section_id }} .product-price a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 44px;
+    color: #4D4D4D;
+  }
+
+  {{ section_id }} .product-title a {
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 44px;
+    color: #4D4D4D;
+  } 
+
+</style>
+
+<div class="custom-featured-products-section">
+  <div class="container mx-auto">
+    <div class="content-wrapper">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% assign product = block.settings.product %}
+              {% if product != blank %}
+                <div class="product-wrapper swiper-slide">
+                <div class="product-media">
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 400 | image_tag }} 
+                  {% endif %}
+                </div>
+                <div class="product-title">
+                  <h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
+                </div>
+                <div class="product-price">
+                  <h3><a href="{{ product.url }}">{{ product.price | money }}</a></h3>
+                </div>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".swiper", {
+      // Optional parameters
+      slidesPerView: 4,
+      loop: true,
+      spaceBetween: 16,
+
+    });
+  });
+  
+</script>
+
+{% schema %} 
+  {
+   "name": "Custom Featured Products",
+   "blocks": [
+    {
+     "type": "product",
+     "name": "Product",
+     "settings": [
+        {
+         "type": "product",
+         "id": "product",
+         "label": "product"
+        }
+     ]
+    }
+      ],
+       "presets": [
+      {
+        "name": "Custom Featured Products"
+      }
+    ]
+  }
+{% endschema %}

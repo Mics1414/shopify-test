@@ -1,0 +1,123 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 0px 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+
+    {{ section_id }} .profile-info h3, .profile-info p {
+    margin: 0px;
+  }
+
+  {{ section_id }} .profile-info p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 44px;
+    color: #4D4D4D;
+  }
+
+  {{ section_id }} .profile-info h3 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 44px;
+    color: #4D4D4D;
+  }
+
+  {{ section_id }} .rating {
+    display: flex;
+    gap: 4px;
+  }
+
+  {{ section_id }} .rating .star {
+    width: 20px;
+    height: 20px;
+    fill: #d1d5db;
+  }
+
+  {{ section_id }} .rating .star.filled {
+    fill: #fbbf24;
+  }
+
+</style>
+
+<div class="client-review-section">
+  <div class="container mx-auto">
+    <div class="content-wrapper">
+      <div class="swiper test2">
+        <div class="swiper-wrapper">
+          {% assign reviews = product.metafields.custom.client_review.value %}
+            {% if reviews %}
+              <ul>
+              {% for reviews in reviews %}
+                <li>
+                <div class="image-text-stars-wrapper swiper-slide">
+                  <div class="client-media">
+                    {% if reviews.image %}
+                      {{ reviews.image.value | image_url: width: 50 | image_tag }}
+                    {%  endif %}
+                  </div>
+                  <div class="client-info-ratings-wrapper">
+                    {% if reviews.name %}
+                      <h3>{{ reviews.name.value }}</h3>
+                    {%  endif %}
+                    {% if reviews.title %}
+                      <p>{{ reviews.title.value }}</p>
+                    {%  endif %}
+                    {% if reviews.review %}
+                      <p>{{ reviews.review.value }}</p>
+                    {%  endif %}
+                  {% if reviews.rating %}
+                  <div class="rating">
+                    {% assign rating = reviews.rating.value | plus: 0 %}
+                      {% for i in (1..5) %}
+                        <svg
+                          class="star {% if i <= rating %}filled{% endif %}"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true">
+                          <path d="M12 .587l3.668 7.431L24 9.75l-6 5.848L19.416 24 12 20.126 4.584 24 6 15.598 0 9.75l8.332-1.732z"/>
+                        </svg>
+                       {% endfor %}
+                  </div>
+                  {%  endif %}
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper(".test1", {
+      // Optional parameters
+      slidesPerView: 3,
+      loop: true,
+      spaceBetween: 16,
+
+    });
+  });
+</script>
+
+{% schema %} 
+  {
+  "name": "Client Review",
+     "presets": [
+    {
+      "name": "Client Review"
+      }
+    ],
+  }
+{% endschema %}

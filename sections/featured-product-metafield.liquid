@@ -1,0 +1,43 @@
+{% assign section_id = "#shopify-section-" | append: section.id %}
+
+<style>
+  {{ section_id }} .container {
+    max-width: 1440px;
+    padding: 0px 10px;
+  }
+
+  {{ section_id }} .mx-auto {
+    margin-inline: auto;
+  }
+</style>
+
+<div class="featuured-product-metafield-section">
+  <div class="container mx-auto">
+    <div class="content-wrapper">
+      {%- if product.metafields.custom.featured_product != blank -%}
+        <ul>
+          {% for featured_product in product.metafields.custom.featured_product.value %}
+            <li>
+              <a href="{{ featured_product.url }}">
+                {{ featured_product.featured_image | image_url: width: 300 | image_tag }}
+                <h3>{{ featured_product.title }}</h3>
+                <p>{{ featured_product.price | money }}</p>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %} 
+  {
+  "name": "Featured Product Meta",
+     "presets": [
+    {
+      "name": "Featured Product Metafield"
+      }
+    ],
+  }
+{% endschema %}
